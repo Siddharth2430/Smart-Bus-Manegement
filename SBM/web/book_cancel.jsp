@@ -32,32 +32,55 @@
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="post" action="SignUp">
+                    <form class="contact100-form validate-form" method="post" action="Cancel">
 				<span class="contact100-form-title">
-					<>
+					<%= session.getAttribute("name") %>
 				</span>
+
+                                        <div>  <span><label class="label-input100" ><b>Route:</b> <%= session.getAttribute("route") %><b><br>Stop:</b> <%= session.getAttribute("stop") %></span></div>
+                                        
+                                        
+                                        
+                                        
 				
-				<label class="label-input100" ><b></b></label>
-				
-				
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+                                        	
+               	
+                       
+                                         <div class="container-contact100-form-btn1">
+                                   
+                                               <button class="contact100-form-btn1" formaction="Book">
 						<span>
-							Register
+							Book
 							<i class="zmdi zmdi-arrow-right m-l-8"></i>
 						</span>
 					</button>
-				</div>
-								
-				<label class="label-input100" for="message">
+                                  <% out.println("");%>
+                                                 </div>
+                                                 <div><br></div>
+                                              <div class="container-contact100-form-btn1">
+                                   
+		<button class="contact100-form-btn1">
+		<span>
+		Cancel
+		<i class="zmdi zmdi-arrow-right m-l-8"></i>
+		</span>
+		</button>
+                                  
+                                                       </div>
+                     
+                 
+                                   
+                                         <label class="label-input100" >
 					<center>
 					<br>
 					<br>
 					<br>
-					Already registered...? <a href="Login.html"><b><u>Login here</u></b></strong></a>
-					</pre>
+					<A HREF="javascript:javascript:history.go(-1)"><u>Back</u></A>
+					
 					</center>
 				</label>
+								
+                        
 				
 			</form>
 		</div>

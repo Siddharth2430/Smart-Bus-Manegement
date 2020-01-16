@@ -8,6 +8,7 @@ import connection.ConnectionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
@@ -22,7 +23,7 @@ import javax.swing.JOptionPane;
  *
  * @author SIDDHARTH
  */
-public class Feedback extends HttpServlet {
+public class Addadmin extends HttpServlet {
 
     Connection con=null;
     @Override
@@ -34,7 +35,7 @@ public void init()
     }
     catch(Exception ex)
     {
-        System.out.println(ex);
+                      JOptionPane.showMessageDialog(null,ex);
     }
 }
     /**
@@ -49,35 +50,56 @@ public void init()
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html;charset=UTF-8");
-        HttpSession session=req.getSession();
-        RequestDispatcher rd = req.getRequestDispatcher("Feedback.html");
+        RequestDispatcher rd= req.getRequestDispatcher("Dashboard_A.jsp");
         try (PrintWriter out = res.getWriter()) {
-        
+               
+            
+                   
              try{
-                     if(req.getParameter("message").equals(""))
+                       if(req.getParameter("enroll").equals("")||req.getParameter("challan").equals("")||req.getParameter("password").equals(""))
                      {
-                                       JOptionPane.showMessageDialog(null,"Field is empty...!!!");
-                                       res.sendRedirect("feedback.html");
+                                       JOptionPane.showMessageDialog(null,"Field are empty...!!!");
+                                       res.sendRedirect("Signup.html");
                      }
-                     else{
-                         
-                     
-                          Statement st= con.createStatement();
+                     else{       
+                           System.out.println("2");
+              
+
+                                try{
+                                    PreparedStatement st= con.prepareStatement("insert into complaint values(?,?)");
+                                    st.setString(1, req.getParameter("eid"));
+                                    st.setString(2, req.getParameter("password"));
+                                    JOptionPane.showMessageDialog(null,"SignUp Successfull.");
+           
+                             
+                                       
+                    }
+                    catch(Exception ex)
+                    {
+                                      JOptionPane.showMessageDialog(null,ex);
+                                      res.sendRedirect("Signup.html");
+                    }
+                     // res.sendRedirect("Dashboard_U.html");
+                       // res.sendRedirect("Dashboard.html");
+                
+               
             
-            st.executeUpdate("insert into complaint values('"+session.getAttribute("challan")+"','"+req.getParameter("message")+"')");
-                        JOptionPane.showMessageDialog(null,"Feedback Submmitted");
-                        res.sendRedirect("feedback.html");
-            
-                     }
+               
+              //out.println("3");
+          
+          //out.println("4");
+
+           
+                       }
            }
            catch(Exception ex)
            {
                              JOptionPane.showMessageDialog(null,ex);
-                             res.sendRedirect("feedback.html");
            }
-            
+                            
         }
-    }
+             
+        }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

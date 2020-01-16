@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.swing.JOptionPane"%>
 <html lang="en">
 <head>
-	<title>SBManageSVVV Feedback</title>
+	<title>SBManageSVVV Feedbacks</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -36,17 +38,62 @@
 				<span class="contact100-form-title">
 					Feedback
                                 </span>
-                                                                                            <label class="label-input100" for="message">We would love to hear your thoughts, concerns or problems, so that we can effectively solve the problems and upgrade the system as per your genuine  requirements</label>
-					<label class="label-input100" for="message">Your Feedback here:</label>
-				<div class="wrap-input100 validate-input">
-					<textarea id="message" class="input100" name="message" placeholder="Please enter your comments..."></textarea>
-					<span class="focus-input100"></span>
-				</div>	
+                                                                                           
+					<label class="label-input100" for="message">FeedBacks:</label>
+				<div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Challan Number</th>
+                                            <th>Feed</th>
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%
+                                            try {
+    java.sql.Connection con;
+    Class.forName("com.mysql.jdbc.Driver");
+    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartbusmanagement", "root", "siddharth");
+   //JOptionPane.showMessageDialog(null,"database successfully opened.");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("Select challan,feed from complaint");
+ int cnt=0;
+    while(rs.next())
+  {
+      cnt=1;
+      
+          %>
+          <tr>
+
+<td><span class="label bg-green"><%= rs.getString(1)%></span> </td>
+<td><span class="label"><%= rs.getString(2)%></span></td>
+
+
+</tr>
+               <%   
+                   }
+if (cnt==0)
+{
+JOptionPane.showMessageDialog(null,"No Feedbacks.");
+}
+}
+catch(SQLException e) {
+    JOptionPane.showMessageDialog(null,e.getMessage());
+  }
+          %>                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>	
 				
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+                                    <button class="contact100-form-btn" formaction="Deletef">
 						<span>
-							Submit
+							Delete
 							<i class="zmdi zmdi-arrow-right m-l-8"></i>
 						</span>
 					</button>

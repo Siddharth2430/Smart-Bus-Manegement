@@ -35,7 +35,7 @@ public void init()
     }
     catch(Exception ex)
     {
-        System.out.println(ex);
+                      JOptionPane.showMessageDialog(null,ex);
     }
 }
     /**
@@ -58,7 +58,8 @@ public void init()
              try{
                        if(req.getParameter("enroll").equals("")||req.getParameter("challan").equals("")||req.getParameter("password").equals(""))
                      {
-                         out.println("Field are empty...!!!");
+                                       JOptionPane.showMessageDialog(null,"Field are empty...!!!");
+                                       res.sendRedirect("Signup.html");
                      }
                      else{       
                            System.out.println("2");
@@ -78,9 +79,10 @@ public void init()
                       ps.executeUpdate();
                     System.out.println("b");
                                 try{
-                                    
+                                    Statement st1 = con.createStatement();
+                                    ResultSet rs1=st1.executeQuery("Select bus from reg_stud where challan='"+req.getParameter("challan")+"'");
                                         rs=st.executeQuery("Select enroll,firstname,lastname,phone,route,shift from stud_data where challan='"+req.getParameter("challan")+"'");
-                                       if(rs.next())
+                                       if(rs.next()&&rs1.next())
                                {
                         String name=rs.getString(2).concat(" "+rs.getString(3));
                         HttpSession session = req.getSession();
@@ -90,6 +92,7 @@ public void init()
                         session.setAttribute("phone", rs.getString(4));
                         session.setAttribute("route", rs.getString(5));
                         session.setAttribute("shift", rs.getString(6));
+                        session.setAttribute("bus",rs1.getInt(1));
 // req.setAttribute("enroll", rs.getString(1));
                     //req.setAttribute("name", rs.getString(2));
                     rd.forward(req, res);
@@ -97,19 +100,21 @@ public void init()
                     }
                     catch(Exception ex)
                     {
-                        out.println(ex);
+                                      JOptionPane.showMessageDialog(null,ex);
+                                      res.sendRedirect("Signup.html");
                     }
                      // res.sendRedirect("Dashboard_U.html");
                        // res.sendRedirect("Dashboard.html");
                 }
                 else
                 {
-                                        out.print("Invalid");
-                       // res.sendRedirect("Login.html");
+                                                     JOptionPane.showMessageDialog(null,"Invalid Credentials");
+                       res.sendRedirect("Signup.html");
                 }
             }
             else{
-                                    out.print("No data Found");
+                                                JOptionPane.showMessageDialog(null,"No data Found");
+                                                res.sendRedirect("Signup.html");
             }
                
               //out.println("3");
@@ -121,7 +126,7 @@ public void init()
            }
            catch(Exception ex)
            {
-               out.println("hello  "+ex);
+                             JOptionPane.showMessageDialog(null,ex);
            }
                             
         }

@@ -223,10 +223,11 @@ iframe {
 
 
 .label-input100 {
+    text-align: justify;
   font-family: Raleway-SemiBold;
-  font-size: 13px;
+  font-size: 16px;
   color: #555555;
-  line-height: 1.5;
+  line-height: 2;
   text-transform: uppercase;
   width: 100%;
 

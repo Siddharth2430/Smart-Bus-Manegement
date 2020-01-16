@@ -15,6 +15,38 @@
         <servlet-name>Feedback</servlet-name>
         <servlet-class>Feedback</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Book</servlet-name>
+        <servlet-class>Book</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cancel</servlet-name>
+        <servlet-class>Cancel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Addadmin</servlet-name>
+        <servlet-class>Addadmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginA</servlet-name>
+        <servlet-class>LoginA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deletef</servlet-name>
+        <servlet-class>Deletef</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dealloc</servlet-name>
+        <servlet-class>Dealloc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Alloc</servlet-name>
+        <servlet-class>Alloc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetA</servlet-name>
+        <servlet-class>ResetA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
@@ -27,9 +59,41 @@
         <servlet-name>Feedback</servlet-name>
         <url-pattern>/Feedback</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Book</servlet-name>
+        <url-pattern>/Book</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cancel</servlet-name>
+        <url-pattern>/Cancel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Addadmin</servlet-name>
+        <url-pattern>/Addadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginA</servlet-name>
+        <url-pattern>/LoginA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deletef</servlet-name>
+        <url-pattern>/Deletef</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dealloc</servlet-name>
+        <url-pattern>/Dealloc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Alloc</servlet-name>
+        <url-pattern>/Alloc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetA</servlet-name>
+        <url-pattern>/ResetA</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            60
         </session-timeout>
     </session-config>
 </web-app>

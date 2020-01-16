@@ -1,13 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.swing.JOptionPane"%>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>SBManageSVVV</title>
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="Site_Logo.jpg" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -54,7 +56,7 @@
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
-    <div class="search-bar">
+    <!--<div class="search-bar">
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
@@ -63,14 +65,14 @@
             <i class="material-icons">close</i>
         </div>
     </div>
+    -->
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="Dashboard_U.html">SBManageSVVV</a>
+               
+                <a class="navbar-brand" href="Dashboard_A.jsp" style="color:black">SBManageSVVV</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -82,8 +84,8 @@
                     <!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">notifications</i>
-                            <span class="label-count">7</span>
+                            <div class="icon-circle bg-yellow"><i class="material-icons ">notifications</i></div>
+                            <span class="label-count bg-red">3</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
@@ -91,24 +93,24 @@
                                 <ul class="menu">
                                     <li>
                                         <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">person_add</i>
+                                            <div class="icon-circle bg-red">
+                                                <i class="material-icons">access_time</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>12 new members joined</h4>
+                                                <h4>Booking Closed</h4>
                                                 <p>
-                                                    <i class="material-icons">access_time</i> 14 mins ago
+                                                    <i class="material-icons">access_time</i> <% request.getParameter(""); %> mins ago
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-cyan">
-                                                <i class="material-icons">add_shopping_cart</i>
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="material-icons">access_time</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>4 sales made</h4>
+                                                <h4>Booking Started</h4>
                                                 <p>
                                                     <i class="material-icons">access_time</i> 22 mins ago
                                                 </p>
@@ -117,70 +119,18 @@
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-red">
-                                                <i class="material-icons">delete_forever</i>
+                                            <div class="bg-red">
+                                                <i class="material-icons">directions_bus</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4><b>Nancy Doe</b> deleted account</h4>
+                                                <h4>Bus Assigned</h4>
                                                 <p>
                                                     <i class="material-icons">access_time</i> 3 hours ago
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-orange">
-                                                <i class="material-icons">mode_edit</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>Nancy</b> changed name</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 2 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-blue-grey">
-                                                <i class="material-icons">comment</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> commented your post</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 4 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-light-green">
-                                                <i class="material-icons">cached</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4><b>John</b> updated status</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="icon-circle bg-purple">
-                                                <i class="material-icons">settings</i>
-                                            </div>
-                                            <div class="menu-info">
-                                                <h4>Settings updated</h4>
-                                                <p>
-                                                    <i class="material-icons">access_time</i> Yesterday
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+                                   </ul>
                             </li>
                             <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
@@ -188,85 +138,8 @@
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                    <!-- Tasks -->
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">flag</i>
-                            <span class="label-count">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">TASKS</li>
-                            <li class="body">
-                                <ul class="menu tasks">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Footer display issue
-                                                <small>32%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Make new buttons
-                                                <small>45%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Create new dashboard
-                                                <small>54%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Solve transition issue
-                                                <small>65%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Answer GitHub questions
-                                                <small>92%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Tasks -->
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    
+                    <li class="pull-right"><a href="LoginA.html" class="js-right-sidebar" data-close="true"><div class="bg-yellow"><i class="material-icons">power_settings_new</i></div></a></li> 
                 </ul>
             </div>
         </div>
@@ -277,22 +150,24 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
+                <!--
                 <div class="image">
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
+                -->
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email"><% request.getParameter() %></div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black;font-size: 20px"><%= session.getAttribute("eid") %></div>
+                    
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="Admin_add.html"><i class="material-icons">person_add</i>Add Admin</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li><a href="alloc_dealloc.jsp"><i class="material-icons">directions_bus</i>Allocation/De-allocation</a></li>
+                            <li><a href="feedbacks.jsp"><i class="material-icons">forum</i>Feedbacks</a></li>
+                            <li><a href="Contact.html"><i class="material-icons">favorite</i>Contact Us</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="LoginA.html"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -303,12 +178,13 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="Dashboard_U.html">
+                        <a href="Dashboard_A.jsp">
                             <i class="material-icons" >home</i>
-                            <span>Home</span>
+                            <span style="color:black">Home</span>
                         </a>
                     </li>
-                    <li>
+                    <!--
+                     <li>
                         <a href="pages/typography.html">
                             <i class="material-icons">text_fields</i>
                             <span>Typography</span>
@@ -637,13 +513,15 @@
                             <span>Information</span>
                         </a>
                     </li>
+                    -->
                 </ul>
+               
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
-                <div class="copyright">
-                    &copy; 2016 - 2017 <a href="Dashboard_U.jsp" style="color:black">SBManageSvvv</a>.
+                <div class="copyright" >
+                     <a href="Dashboard_A.jsp" ><p style="color:black" >&copy; 2016 - 2017 SBManageSvvv.</p></a>
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
@@ -653,7 +531,7 @@
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
+        <!-- <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
                 <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
@@ -794,54 +672,55 @@
                 </div>
             </div>
         </aside>
+        -->
         <!-- #END# Right Sidebar -->
     </section>
 
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>USER DASHBOARD</h2>
+                <h2>ADMIN DASHBOARD</h2>
             </div>
 
             <!-- Widgets -->
             <div class="row clearfix">
-                <a href="user_profile.html">
+                <a href="Admin_add.html">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     
                     <div class="info-box bg-yellow hover-expand-effect">
                         <div class="icon">
-                            <i class="material-icons">person</i>
+                            <i class="material-icons">person_add</i>
                         </div>
                         <div class="content">
-                            <div class="text">PROFILE</div>
-                            <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Add Admin</div>
+                           <!-- <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div> -->
                         </div>
                     </div>
                         
                 </div>
                     </a>
-                <a href="book_cancel.html">
+                <a href="alloc_dealloc.jsp">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-yellow hover-expand-effect">
                         <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
+                            <i class="material-icons">directions_bus</i>
                         </div>
                         <div class="content">
-                            <div class="text">BOOK\CANCEL</div>
-                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Alloc / De-alloc Bus</div>
+                       <!--     <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>-->
                         </div>
                     </div>
                 </div>
                 </a>
-                <a href="feedback.html">
+                <a href="feedbacks.jsp">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-yellow hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">forum</i>
                         </div>
                         <div class="content">
-                            <div class="text">FEEDBACK</div>
-                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Feedbacks</div>
+                      <!--      <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>-->
                         </div>
                     </div>
                 </div>
@@ -853,8 +732,8 @@
                             <i class="material-icons">phone</i>
                         </div>
                         <div class="content">
-                            <div class="text">CONTACT US</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Contact us</div>
+                       <!--     <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>-->
                         </div>
                     </div>
                 </div>
@@ -862,6 +741,7 @@
             </div>
             <!-- #END# Widgets -->
             <!-- CPU Usage -->
+            <!--
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
@@ -896,9 +776,11 @@
                     </div>
                 </div>
             </div>
+            -->
             <!-- #END# CPU Usage -->
+            <!--
             <div class="row clearfix">
-                <!-- Visitors -->
+                
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg-pink">
@@ -925,8 +807,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- #END# Visitors -->
-                <!-- Latest Social Trends -->
+                
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg-cyan">
@@ -957,8 +838,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- #END# Latest Social Trends -->
-                <!-- Answered Tickets -->
+                
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg-teal">
@@ -992,26 +872,30 @@
                         </div>
                     </div>
                 </div>
-                <!-- #END# Answered Tickets -->
+                
             </div>
+        -->
 
             <div class="row clearfix">
+                <center>
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <div class="card">
+                    <div class="card" >
+                        
                         <div class="header">
-                            <h2>TASK INFOS</h2>
+                            <h2>BOOKING INFO</h2>
+                            
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                        <li><a href="ResetA">Reset</a></li>
                                     </ul>
+                        
                                 </li>
+                 
                             </ul>
                         </div>
                         <div class="body">
@@ -1019,79 +903,51 @@
                                 <table class="table table-hover dashboard-task-infos">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Task</th>
-                                            <th>Status</th>
-                                            <th>Manager</th>
-                                            <th>Progress</th>
+                                            
+                                            <th>Bus Number</th>
+                                            <th>Route</th>
+                                            <th>Capacity</th>
+                                            <th>Seats available</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Task A</td>
-                                            <td><span class="label bg-green">Doing</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Task B</td>
-                                            <td><span class="label bg-blue">To Do</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Task C</td>
-                                            <td><span class="label bg-light-blue">On Hold</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Task D</td>
-                                            <td><span class="label bg-orange">Wait Approvel</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Task E</td>
-                                            <td>
-                                                <span class="label bg-red">Suspended</span>
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <%
+                                            try {
+    java.sql.Connection con;
+    Class.forName("com.mysql.jdbc.Driver");
+    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartbusmanagement", "root", "siddharth");
+    //JOptionPane.showMessageDialog(null,"database successfully opened.");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("Select bus_no,bus_route,bus_seats,avail_seats from bus_sched");
+  while(rs.next())
+  {
+          %>
+          <tr>
+
+<td><span class="label bg-green"><%= rs.getString(1)%></span> </td>
+<td><span class="label bg-blue"><%= rs.getString(2)%></span></td>
+<td><span class="label bg-red"><%= rs.getString(3)%></span></td>
+<td><span class="label bg-brown"><%= rs.getString(4)%></span></td>
+
+</tr>
+               <%   
+                   }
+}
+catch(SQLException e) {
+    JOptionPane.showMessageDialog(null,e.getMessage());
+  }
+          %>                      
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- #END# Task Info -->
                 <!-- Browser Usage -->
+                <!--
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="header">
@@ -1114,8 +970,11 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- #END# Browser Usage -->
+            </center>
             </div>
+                    
         </div>
     </section>
 
@@ -1157,7 +1016,17 @@
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/index.js"></script>
+    
+    <script>
+        function diff_minutes(dt2, dt1) 
+ {
 
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= 60;
+  return Math.abs(Math.round(diff));
+  
+ }
+    </script>
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
 </body>

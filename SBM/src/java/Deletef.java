@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import connection.ConnectionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,21 +20,8 @@ import javax.swing.JOptionPane;
  *
  * @author SIDDHARTH
  */
-public class Feedback extends HttpServlet {
-
-    Connection con=null;
-    @Override
-public void init()
-{
-    try{
-   con =ConnectionDB.giveConnection();
-      //  JOptionPane.showMessageDialog(null,"1");
-    }
-    catch(Exception ex)
-    {
-        System.out.println(ex);
-    }
-}
+public class Deletef extends HttpServlet {
+Connection con=ConnectionDB.giveConnection();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,33 +34,32 @@ public void init()
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html;charset=UTF-8");
-        HttpSession session=req.getSession();
-        RequestDispatcher rd = req.getRequestDispatcher("Feedback.html");
         try (PrintWriter out = res.getWriter()) {
-        
-             try{
-                     if(req.getParameter("message").equals(""))
-                     {
-                                       JOptionPane.showMessageDialog(null,"Field is empty...!!!");
-                                       res.sendRedirect("feedback.html");
-                     }
-                     else{
+            try{
+                    
                          
                      
-                          Statement st= con.createStatement();
-            
-            st.executeUpdate("insert into complaint values('"+session.getAttribute("challan")+"','"+req.getParameter("message")+"')");
-                        JOptionPane.showMessageDialog(null,"Feedback Submmitted");
-                        res.sendRedirect("feedback.html");
-            
-                     }
+            //   out.println("2");
+              Statement st= con.createStatement();
+              //out.println("3");
+            ResultSet rs=st.executeQuery("Select * from complaint");
+          //out.println("4");
+            if(rs.next())
+            {
+                        st.executeUpdate("delete from complaint");
+                        res.sendRedirect("feedbacks.jsp");
+            }
+            else{
+                                               JOptionPane.showMessageDialog(null,"No data Found");
+                                                                       res.sendRedirect("feedbacks.jsp");
+            }
+                     
            }
            catch(Exception ex)
            {
-                             JOptionPane.showMessageDialog(null,ex);
-                             res.sendRedirect("feedback.html");
+                             JOptionPane.showMessageDialog(null,"del "+ex);
+                             res.sendRedirect("feedbacks.jsp");
            }
-            
         }
     }
 

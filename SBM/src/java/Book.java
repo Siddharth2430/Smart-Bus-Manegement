@@ -8,9 +8,7 @@ import connection.ConnectionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,19 +20,19 @@ import javax.swing.JOptionPane;
  *
  * @author SIDDHARTH
  */
-public class Feedback extends HttpServlet {
-
-    Connection con=null;
+public class Book extends HttpServlet {
+Connection con=null;
     @Override
 public void init()
 {
     try{
    con =ConnectionDB.giveConnection();
-      //  JOptionPane.showMessageDialog(null,"1");
+    //JOptionPane.showMessageDialog(null,"1");
+      //  System.out.println("1");
     }
     catch(Exception ex)
     {
-        System.out.println(ex);
+                      JOptionPane.showMessageDialog(null,ex);
     }
 }
     /**
@@ -46,36 +44,20 @@ public void init()
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest req, HttpServletResponse res)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        res.setContentType("text/html;charset=UTF-8");
-        HttpSession session=req.getSession();
-        RequestDispatcher rd = req.getRequestDispatcher("Feedback.html");
-        try (PrintWriter out = res.getWriter()) {
-        
-             try{
-                     if(req.getParameter("message").equals(""))
-                     {
-                                       JOptionPane.showMessageDialog(null,"Field is empty...!!!");
-                                       res.sendRedirect("feedback.html");
-                     }
-                     else{
-                         
-                     
-                          Statement st= con.createStatement();
-            
-            st.executeUpdate("insert into complaint values('"+session.getAttribute("challan")+"','"+req.getParameter("message")+"')");
-                        JOptionPane.showMessageDialog(null,"Feedback Submmitted");
-                        res.sendRedirect("feedback.html");
-            
-                     }
-           }
-           catch(Exception ex)
-           {
-                             JOptionPane.showMessageDialog(null,ex);
-                             res.sendRedirect("feedback.html");
-           }
-            
+        HttpSession session = request.getSession();
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+         try{
+                Statement st=con.createStatement();
+                st.executeUpdate("Update reg_stud set book=1 where challan='"+session.getAttribute("challan")+"'");
+                                            JOptionPane.showMessageDialog(null,"Booked Successfully \n wait for bus assignment");
+                response.sendRedirect("book_cancel.jsp");
+          }catch(Exception ex){
+                            JOptionPane.showMessageDialog(null,ex);
+                            response.sendRedirect("book_cancel.jsp");
+          }
         }
     }
 

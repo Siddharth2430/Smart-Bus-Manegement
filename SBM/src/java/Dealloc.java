@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 
-import connection.ConnectionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import connection.ConnectionDB;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
@@ -22,21 +24,27 @@ import javax.swing.JOptionPane;
  *
  * @author SIDDHARTH
  */
-public class Feedback extends HttpServlet {
+public class Dealloc extends HttpServlet {
 
-    Connection con=null;
+Connection con=null;
     @Override
 public void init()
 {
     try{
    con =ConnectionDB.giveConnection();
-      //  JOptionPane.showMessageDialog(null,"1");
+    //JOptionPane.showMessageDialog(null,"1");
+      //  System.out.println("1");
     }
     catch(Exception ex)
     {
-        System.out.println(ex);
+       JOptionPane.showMessageDialog(null,ex);
+       
     }
 }
+            
+           
+           
+            
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,36 +56,36 @@ public void init()
      */
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        res.setContentType("text/html;charset=UTF-8");
-        HttpSession session=req.getSession();
-        RequestDispatcher rd = req.getRequestDispatcher("Feedback.html");
+         
+       RequestDispatcher rd=req.getRequestDispatcher("Dashboard_U.jsp");
+       res.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = res.getWriter()) {
-        
-             try{
-                     if(req.getParameter("message").equals(""))
+            /* TODO output your page here. You may use following sample code. */
+            if(req.getParameter("enr").equals(""))
                      {
-                                       JOptionPane.showMessageDialog(null,"Field is empty...!!!");
-                                       res.sendRedirect("feedback.html");
+                                      JOptionPane.showMessageDialog(null,"Field is empty...!!!");
+                                      res.sendRedirect("alloc_dealloc.jsp");
                      }
-                     else{
-                         
-                     
-                          Statement st= con.createStatement();
-            
-            st.executeUpdate("insert into complaint values('"+session.getAttribute("challan")+"','"+req.getParameter("message")+"')");
-                        JOptionPane.showMessageDialog(null,"Feedback Submmitted");
-                        res.sendRedirect("feedback.html");
-            
-                     }
-           }
-           catch(Exception ex)
-           {
-                             JOptionPane.showMessageDialog(null,ex);
-                             res.sendRedirect("feedback.html");
-           }
-            
-        }
+            else{
+                    try{
+                          Statement st = con.createStatement();
+                          String enr=req.getParameter("enr");
+                                   st.executeUpdate("Update reg_stud set book=0 where challan in ("+enr+")");
+                                    st.executeUpdate("Update reg_stud set bus=0 where challan in ("+enr+")");
+                                    JOptionPane.showMessageDialog(null,"Deallocation Successfull");
+                                                                         res.sendRedirect("alloc_dealloc.jsp");
+                   
+                    
+                    }
+                    catch(Exception ex)
+                    {
+                                      JOptionPane.showMessageDialog(null,ex);
+                                      res.sendRedirect("alloc_dealloc.jsp");
+                    }
+                    }
+    } 
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -117,5 +125,5 @@ public void init()
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+   
 }

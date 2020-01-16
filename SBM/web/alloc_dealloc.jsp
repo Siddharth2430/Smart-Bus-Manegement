@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SBManageSVVV Feedback</title>
+	<title>SBManageSVVV Allocation</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,34 +32,68 @@
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="post" action="Feedback">
+                    <form class="contact100-form validate-form" method="post" action="Alloc">
 				<span class="contact100-form-title">
-					Feedback
-                                </span>
-                                                                                            <label class="label-input100" for="message">We would love to hear your thoughts, concerns or problems, so that we can effectively solve the problems and upgrade the system as per your genuine  requirements</label>
-					<label class="label-input100" for="message">Your Feedback here:</label>
-				<div class="wrap-input100 validate-input">
-					<textarea id="message" class="input100" name="message" placeholder="Please enter your comments..."></textarea>
-					<span class="focus-input100"></span>
-				</div>	
+					Bus Allocation/ De-Allocation
+				</span>
+
+                                       
+                                        
+                                        
+                                        
+                                        
 				
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+                                        	
+               	
+                            <label class="label-input100" >Shift:</label>
+				<div class="wrap-input100" class="input100" name="shift">
+                                    <center>
+					<select>
+                                                                                                                                <option value="I">First</option>
+                                                                                                                                <option value="II">Second</option>
+                                                                                                                  </select>
+                                    </center>
+				</div>
+                                         <div class="container-contact100-form-btn1">
+                                   
+                                               <button class="contact100-form-btn1" >
 						<span>
-							Submit
+							Allocate
 							<i class="zmdi zmdi-arrow-right m-l-8"></i>
 						</span>
 					</button>
+                                  <% out.println("");%>
+                                                 </div>
+                                                 <div><br></div>
+                                                 <label class="label-input100" >Enrollment Numbers: (* please write like: 'enr1','enr2',....)</label>
+				<div class="wrap-input100">
+					<input id="challan" class="input100" type="text" name="enr" >
+					<span class="focus-input100"></span>
 				</div>
-								
-				<label class="label-input100" for="message">
+                                            
+                                              <div class="container-contact100-form-btn1">
+                                   
+		<button class="contact100-form-btn1" formaction="Dealloc">
+		<span>
+		De-Allocate
+		<i class="zmdi zmdi-arrow-right m-l-8"></i>
+		</span>
+		</button>
+                                  
+                                                       </div>
+                     
+                 
+                                   
+                                         <label class="label-input100" >
 					<center>
 					<br>
-					<br>
-					<br>
-					<A HREF="javascript:javascript:history.go(-1)">back</A>
+					
+					<A HREF="javascript:javascript:history.go(-1)"><u>Back</u></A>
+					
 					</center>
 				</label>
+								
+                        
 				
 			</form>
 		</div>

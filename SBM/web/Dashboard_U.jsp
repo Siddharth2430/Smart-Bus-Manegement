@@ -162,7 +162,7 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="user_profile.jsp"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="book_cancel.html"><i class="material-icons">directions_bus</i>Book/Cancel</a></li>
+                            <li><a href="book_cancel.jsp"><i class="material-icons">directions_bus</i>Book/Cancel</a></li>
                             <li><a href="feedback.html"><i class="material-icons">forum</i>Feedback</a></li>
                             <li><a href="Contact.html"><i class="material-icons">favorite</i>Contact Us</a></li>
                             <li role="separator" class="divider"></li>
@@ -698,14 +698,14 @@
                         
                 </div>
                     </a>
-                <a href="book_cancel.html">
+                <a href="book_cancel.jsp">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-yellow hover-expand-effect">
                         <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
+                            <i class="material-icons">directions_bus</i>
                         </div>
                         <div class="content">
-                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Book / Cancel</div>
+                            <div class="text" style="text-transform: capitalize;text-align: center;font-size: 20px">Book / Cancel Bus</div>
                        <!--     <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>-->
                         </div>
                     </div>
@@ -904,71 +904,24 @@
                                 <table class="table table-hover dashboard-task-infos">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Task</th>
-                                            <th>Status</th>
-                                            <th>Manager</th>
-                                            <th>Progress</th>
+                                            
+                                            <th>Bus Number</th>
+                                            <th>Route</th>
+                                            <th>Stop</th>
+                                            <th>Shift</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Task A</td>
-                                            <td><span class="label bg-green">Doing</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                                </div>
-                                            </td>
+                                           
+                                            <td><span class="label bg-green"> <%= session.getAttribute("bus") %></span> </td>
+                                            <td><span class="label bg-blue"><%= session.getAttribute("route") %></span></td>
+                                            <td><span class="label bg-red"><%= session.getAttribute("stop") %></span></td>
+                                            <td><span class="label bg-brown"><%= session.getAttribute("shift") %></span></td>
+                                            
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Task B</td>
-                                            <td><span class="label bg-blue">To Do</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Task C</td>
-                                            <td><span class="label bg-light-blue">On Hold</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Task D</td>
-                                            <td><span class="label bg-orange">Wait Approvel</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Task E</td>
-                                            <td>
-                                                <span class="label bg-red">Suspended</span>
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                      
                                     </tbody>
                                 </table>
                             </div>
