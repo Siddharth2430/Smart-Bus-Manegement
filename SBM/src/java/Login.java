@@ -19,6 +19,7 @@ import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -31,13 +32,14 @@ Connection con=null;
 public void init()
 {
     try{
+       // showMessageDialog(null,"20");
    con =ConnectionDB.giveConnection();
     //JOptionPane.showMessageDialog(null,"1");
       //  System.out.println("1");
     }
     catch(Exception ex)
     {
-       JOptionPane.showMessageDialog(null,ex);
+       JOptionPane.showMessageDialog(null,"Helllo "+ex);
        
     }
 }
@@ -62,7 +64,8 @@ public void init()
         try (PrintWriter out = res.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
            try{
-                     if(req.getParameter("challan").equals("")||req.getParameter("password").equals(""))
+              // showMessageDialog(null,"1");
+                     if(req.getParameter("enroll").equals("")||req.getParameter("password").equals(""))
                      {
                                       JOptionPane.showMessageDialog(null,"Field are empty...!!!");
                                       res.sendRedirect("Login.html");
@@ -70,32 +73,31 @@ public void init()
                      else{
                          
                      
-            //   out.println("2");
+               //showMessageDialog(null,"2");
               Statement st= con.createStatement();
-              //out.println("3");
-            ResultSet rs=st.executeQuery("Select challan,password from reg_stud where challan='"+req.getParameter("challan")+"'");
+              //ssshowMessageDialog(null,"3");
+            ResultSet rs=st.executeQuery("Select enroll,password from reg_stud where enroll='"+req.getParameter("enroll")+"'");
           //out.println("4");
             if(rs.next())
             {
-                if(rs.getString(1).equals(req.getParameter("challan"))&&rs.getString(2).equals(req.getParameter("password")))
+                if(rs.getString(1).equals(req.getParameter("enroll"))&&rs.getString(2).equals(req.getParameter("password")))
                 {
                     try{
                           Statement st1 = con.createStatement();
-                                    ResultSet rs1=st1.executeQuery("Select bus from reg_stud where challan='"+req.getParameter("challan")+"'");
-                    rs=st.executeQuery("Select enroll,firstname,lastname,phone,route,shift,stop from stud_data where challan='"+req.getParameter("challan")+"'");
+                                    ResultSet rs1=st1.executeQuery("Select bus from reg_stud where enroll='"+req.getParameter("enroll")+"'");
+                    rs=st.executeQuery("Select challan,firstname,lastname,phone,route,shift,stop from stud_data where enroll='"+req.getParameter("enroll")+"'");
                     if(rs.next()&&rs1.next())
                     {
                         String name=rs.getString(2).concat(" "+rs.getString(3));
                        
-                        HttpSession session = req.getSession();
-                        session.setAttribute("enroll", rs.getString(1));
+                        HttpSession session = req.getSession(true);
+                        session.setAttribute("challan", rs.getString(1));
                         session.setAttribute("name", name);
-                        session.setAttribute("challan", req.getParameter("challan"));
+                        session.setAttribute("enroll", req.getParameter("enroll"));
                         session.setAttribute("phone", rs.getString(4));
                         session.setAttribute("route", rs.getString(5));
                         session.setAttribute("shift", rs.getString(6));
-                        session.setAttribute("stop", rs.getString(7));
-
+                        session.setAttribute("stop", rs.getString(7));                        
                         session.setAttribute("bus",rs1.getInt(1));
                    // req.setAttribute("enroll", rs.getString(1));
                     //req.setAttribute("name", rs.getString(2));
@@ -104,7 +106,7 @@ public void init()
                     }
                     catch(Exception ex)
                     {
-                                      JOptionPane.showMessageDialog(null,ex);
+                                      JOptionPane.showMessageDialog(null,"jiji "+ex);
                                       res.sendRedirect("Login.html");
                     }
                 }
@@ -122,7 +124,7 @@ public void init()
            }
            catch(Exception ex)
            {
-                             JOptionPane.showMessageDialog(null,ex);
+                             JOptionPane.showMessageDialog(null,"rtjg "+ex);
                              res.sendRedirect("Login.html");
            }
         }

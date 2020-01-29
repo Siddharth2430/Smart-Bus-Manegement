@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -882,7 +882,7 @@
                     <div class="card" >
                         
                         <div class="header">
-                            <h2>BOOKING INFO</h2>
+                            <h2>BOOKING INFO <%= request.getAttribute("time")%></h2>
                             <!--
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">

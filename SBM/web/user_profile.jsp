@@ -37,7 +37,8 @@
 					<%= session.getAttribute("name") %>
 				</span>
 				
-                                        <span><label class="label-input100" ><b>Enrollment Number:</b> <%= session.getAttribute("enroll") %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challan Number:</b> <%= session.getAttribute("challan") %></label></span>
+                                        <span><label class="label-input100" ><b>Enrollment Number:</b> <%= session.getAttribute("enroll") %> </label></span>
+                                        <span><label class="label-input100" ><b>Challan Number:</b> <%= session.getAttribute("challan") %></label></span>
                                         
                                         <span><label class="label-input100" ><b>Phone Number:</b> <%= session.getAttribute("phone") %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <b>Shift:</b> <%= session.getAttribute("shift") %></label></span>
@@ -47,6 +48,9 @@
                                         <div>
                                             <br>
                                         </div>	
+                                    
+					
+					
 				<div class="container-contact100-form-btn1">
                                    
 					<button class="contact100-form-btn1">
@@ -58,8 +62,6 @@
 				</div>
                                          <label class="label-input100" >
 					<center>
-					<br>
-					<br>
 					<br>
 					<A HREF="javascript:javascript:history.go(-1)">Back</A>
 					

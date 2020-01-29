@@ -120,7 +120,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="localhost"  appBase="webapps"
+      <Host name="localhost"  appBase="C:\Users\SIDDHARTH\Documents\GitHub\Smart_Bus_Manegement\Apache Tomcat 8.0.27\webapps"
             unpackWARs="true" autoDeploy="true">
 
         <!-- SingleSignOn valve, share authentication between web applications
