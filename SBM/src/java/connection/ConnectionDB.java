@@ -18,8 +18,18 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class ConnectionDB {
   
+    /*
+                            *
+                            * Function Name: 	giveConnection()
+                            * Input: 		
+                            * Output: 		It returns an object of Connection type.
+                            * Logic: 		Connects to the database and if successfull, it returns connection object
+                            * Example Call:		ConnectionDB.giveConnection();
+                            *
+                            */
     public static Connection giveConnection()
     {
+      //con is 
         Connection  con=null;
         try{
              Class.forName("com.mysql.jdbc.Driver");
