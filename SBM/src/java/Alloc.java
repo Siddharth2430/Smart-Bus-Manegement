@@ -133,14 +133,26 @@ public void init()
                System.out.println("18");
                st1.executeUpdate("update bus_sched set avail_seats="+avail.get(bs-1)+" where bus_no="+bs);
                               System.out.println("19");
+               
             }
             if(data_cnt==0){
                                                JOptionPane.showMessageDialog(null,"No Bus data Found");
                                                res.sendRedirect("alloc_dealloc.jsp");
             }
-            
-            
-            
+            int i=0;
+                           System.out.println("20");
+           Statement st1=con.createStatement();
+           Statement st2=con.createStatement();
+                           ResultSet rs2=st1.executeQuery("select bus,enroll,route from reg_stud where book=1");
+           System.out.println("21");
+            while(rs2.next())
+            {
+                i++;
+                System.out.println("22");
+               st2.executeUpdate("insert into bus_det values("+rs2.getInt(1)+",'"+rs2.getString(2)+"','"+rs2.getString(3)+"')");
+                JOptionPane.showMessageDialog(null," "+i);
+                System.out.println("23");
+            }
                 res.sendRedirect("alloc_dealloc.jsp");
            }
            catch(Exception ex)

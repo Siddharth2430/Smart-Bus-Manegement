@@ -99,7 +99,7 @@
                                             <div class="menu-info">
                                                 <h4>Booking Closed</h4>
                                                 <p>
-                                                    <i class="material-icons">access_time</i> <% request.getParameter(""); %> mins ago
+                                                    <i class="material-icons">access_time</i> 00 mins ago
                                                 </p>
                                             </div>
                                         </a>
@@ -112,7 +112,7 @@
                                             <div class="menu-info">
                                                 <h4>Booking Started</h4>
                                                 <p>
-                                                    <i class="material-icons">access_time</i> 22 mins ago
+                                                    <i class="material-icons">access_time</i> 59 mins ago
                                                 </p>
                                             </div>
                                         </a>
@@ -916,7 +916,7 @@
                                             try {
     java.sql.Connection con;
     Class.forName("com.mysql.jdbc.Driver");
-    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartbusmanagement", "root", "siddharth");
+    con = DriverManager.getConnection("jdbc:mysql://bmrwh7xhwgbrqzkq4r5z-mysql.services.clever-cloud.com:3306/bmrwh7xhwgbrqzkq4r5z","ulvugdvz55ka9izl","d5ED5DbpghKTQWalLWww");
     //JOptionPane.showMessageDialog(null,"database successfully opened.");
     Statement st=con.createStatement();
     ResultSet rs=st.executeQuery("Select bus_no,bus_route,bus_seats,avail_seats from bus_sched");

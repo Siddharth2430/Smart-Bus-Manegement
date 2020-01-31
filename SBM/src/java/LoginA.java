@@ -19,6 +19,7 @@ import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -32,12 +33,12 @@ public void init()
 {
     try{
    con =ConnectionDB.giveConnection();
-    //JOptionPane.showMessageDialog(null,"1");
+    //showMessageDialog(null,"con done");
       //  System.out.println("1");
     }
     catch(Exception ex)
     {
-        JOptionPane.showMessageDialog(null,"con "+ex);
+        showMessageDialog(null,"con "+ex);
     }
 }
             
@@ -48,8 +49,8 @@ public void init()
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
-     * @param response servlet response
+     * @param req
+     * @param res
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
@@ -58,21 +59,26 @@ public void init()
          
        RequestDispatcher rd=req.getRequestDispatcher("Dashboard_A.jsp");
        res.setContentType("text/html;charset=UTF-8");
+      // showMessageDialog(null,"#0");
         try (PrintWriter out = res.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+        //    showMessageDialog(null,"0");
            try{
+          //     showMessageDialog(null,"1");
                      if(req.getParameter("eid").equals("")||req.getParameter("password").equals(""))
                      {
                                       JOptionPane.showMessageDialog(null,"Field are empty...!!!");
                                       res.sendRedirect("LoginA.html");
                      }
                      else{
-                         
+            //   showMessageDialog(null,"2");          
                      
             //   out.println("2");
               Statement st= con.createStatement();
+            //  showMessageDialog(null,"3");
               //out.println("3");
             ResultSet rs=st.executeQuery("Select eid,password from admin where eid='"+req.getParameter("eid")+"'");
+           // showMessageDialog(null,"4");
           //out.println("4");
             if(rs.next())
             {

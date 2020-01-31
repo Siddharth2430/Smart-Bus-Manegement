@@ -51,8 +51,8 @@ public void init()
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
-     * @param response servlet response
+     * @param req
+     * @param res
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
@@ -64,7 +64,7 @@ public void init()
         try (PrintWriter out = res.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
            try{
-              // showMessageDialog(null,"1");
+            // showMessageDialog(null,"1");
                      if(req.getParameter("enroll").equals("")||req.getParameter("password").equals(""))
                      {
                                       JOptionPane.showMessageDialog(null,"Field are empty...!!!");
@@ -75,7 +75,7 @@ public void init()
                      
                //showMessageDialog(null,"2");
               Statement st= con.createStatement();
-              //ssshowMessageDialog(null,"3");
+            //  showMessageDialog(null,"3");
             ResultSet rs=st.executeQuery("Select enroll,password from reg_stud where enroll='"+req.getParameter("enroll")+"'");
           //out.println("4");
             if(rs.next())
@@ -124,7 +124,7 @@ public void init()
            }
            catch(Exception ex)
            {
-                             JOptionPane.showMessageDialog(null,"rtjg "+ex);
+                             JOptionPane.showMessageDialog(null,"Login "+ex);
                              res.sendRedirect("Login.html");
            }
         }

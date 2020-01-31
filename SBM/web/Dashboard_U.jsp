@@ -98,7 +98,7 @@
                                             <div class="menu-info">
                                                 <h4>Booking Closed</h4>
                                                 <p>
-                                                    <i class="material-icons">access_time</i> <% request.getParameter(""); %> mins ago
+                                                    <i class="material-icons">access_time</i> 00 mins ago
                                                 </p>
                                             </div>
                                         </a>
@@ -111,7 +111,7 @@
                                             <div class="menu-info">
                                                 <h4>Booking Started</h4>
                                                 <p>
-                                                    <i class="material-icons">access_time</i> 22 mins ago
+                                                    <i class="material-icons">access_time</i> 59 mins ago
                                                 </p>
                                             </div>
                                         </a>

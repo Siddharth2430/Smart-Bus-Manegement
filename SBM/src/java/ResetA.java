@@ -70,7 +70,7 @@ public void init()
                                    st.executeUpdate("Update bus_sched set avail_seats=bus_seats");
                                    st.executeUpdate("Update reg_stud set book=0");
                                    st.executeUpdate("Update reg_stud set bus=0");
-                                    
+                                    st.executeUpdate("delete from bus_det");
                                     JOptionPane.showMessageDialog(null,"Reset Successfull");
                                                                          res.sendRedirect("Dashboard_A.jsp");
                    
