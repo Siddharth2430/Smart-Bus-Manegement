@@ -26,12 +26,21 @@ import javax.swing.JOptionPane;
 public class Addadmin extends HttpServlet {
 
     Connection con=null;
+      /*
+                            *
+                            * Function Name: 	init
+                            * Input: 		
+                            * Output: 		
+                            * Logic: 		initialize the components defined in it only once
+                            * Example Call:		init(); - it is automatically provoked by the process.
+                            *
+                            */
     @Override
 public void init()
 {
     try{
    con =ConnectionDB.giveConnection();
-      //  JOptionPane.showMessageDialog(null,"1");
+     
     }
     catch(Exception ex)
     {
@@ -47,6 +56,16 @@ public void init()
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+      /*
+                            *
+                            * Function Name: 	processRequest
+                            * Input: 		HttpServletRequest req - for request processing, HttpServletResponse res - - for response processing
+                            * Output: 		
+                            * Logic: 		it executes the code in it whenever this servlet is requested
+                            * Example Call:		processRequest(Request, Response) - automatically invoked
+                            *
+                            */
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html;charset=UTF-8");
@@ -62,7 +81,7 @@ public void init()
                                        res.sendRedirect("Signup.html");
                      }
                      else{       
-                           System.out.println("2");
+                           
               
 
                                 try{
@@ -79,15 +98,7 @@ public void init()
                                       JOptionPane.showMessageDialog(null,ex);
                                       res.sendRedirect("Signup.html");
                     }
-                     // res.sendRedirect("Dashboard_U.html");
-                       // res.sendRedirect("Dashboard.html");
-                
-               
-            
-               
-              //out.println("3");
-          
-          //out.println("4");
+                    
 
            
                        }
