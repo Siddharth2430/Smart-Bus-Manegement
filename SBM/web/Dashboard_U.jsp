@@ -1,12 +1,4 @@
-/*
-*
-* Project Name: 	SMART BUS MANAGEMENT
-* Author List: 		SIDDHARTH SHRIVASTAVA, RAJESHWARI KAUSHAL
-* Filename: 		Dashboard_U.jsp
-* Functions: 		
-* Global Variables:	
-*
-*/
+
 <!DOCTYPE html>
 <html>
 
