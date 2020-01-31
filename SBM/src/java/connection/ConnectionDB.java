@@ -1,8 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+*
+* Project Name: 	SMART BUS MANAGEMENT
+* Author List:		SIDDHARTH SHRIVASTAVA, RAJESHWARI KAUSHAL
+* Filename: 		  ConnetionDB.java
+* Functions: 		
+* Global Variables:	
+*
+*/
 package connection;
 
 import java.sql.DriverManager;
