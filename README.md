@@ -1,5 +1,5 @@
 # Smart_Bus_Manegement
-This repository is for easy resource availability for Our EYIC Project.
+A JAVA/HTML/CSS based web application system for managing bus management system to overcome the problem of over-seating and under-seating capacity through population management on the basis of their respective routes and stops.
 
 Software Requirements:
   1. OS: Windows 10 64-bit or higher/ ubuntu linux 18.04 LTS or higher.
